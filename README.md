@@ -6,3 +6,6 @@
 - Telegram Bot API: API для взаимодействия с платформой Telegram и разработкой ботов.
 - JSON: формат данных, используемый для обмена информацией между ботом и API погоды.
 - Accuweather API: API, предоставляющее информацию о погоде.
+
+
+![image](https://github.com/alexgger/Weather-bot-Telegram/assets/83018282/0d086b0a-c2e0-4fac-84dd-7b838270d4d4)
