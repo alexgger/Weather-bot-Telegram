@@ -14,7 +14,7 @@ namespace Weather_TG
 
             string response = ParsingWebsite.ReadJson(URL);
 
-            ObservableCollection<CityId> cities = JsonConvert.DeserializeObject<ObservableCollection<CityId>>(response);
+            var cities = JsonConvert.DeserializeObject<ObservableCollection<CityId>>(response);
 
             if (cities == null) return "no";
 

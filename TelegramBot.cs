@@ -6,14 +6,13 @@ namespace Weather_TG
 {
     class TelegramBot
     {
-        private static TelegramBotClient client;
+        private static TelegramBotClient client = new TelegramBotClient(ApplicationSettings.APIKeyTelegram);
 
         /// <summary>
         /// Запуск телеграмм бота
         /// </summary>
         public void WorkBot()
         {
-                client = new TelegramBotClient(ApplicationSettings.APIKeyTelegram);
                 client.StartReceiving(
                     updateHandler: OnMessageHandler,
                     pollingErrorHandler: HandlePollingErrorAsync);
@@ -32,6 +31,7 @@ namespace Weather_TG
             {
                 if (msg.Text != null || msg.Text != "")
                 {
+                    
                     if(msg.Text == "/start")
                     {
                         await client.SendTextMessageAsync(msg.Chat.Id, "Привет! Я телеграмм бот, который покажет тебе актуальную погоду на необходимый указанный промежуток времени! Ну, что? Начнем?");
@@ -43,6 +43,8 @@ namespace Weather_TG
                         if (IDcity != "no")
                         {
                             var weather = ParsingWebsite.ReadWeather(IDcity);
+
+                            if (weather == null) return;
 
                             await client.SendTextMessageAsync(msg.Chat.Id, weather.ShowInfo());
                             await client.SendPhotoAsync(msg.Chat.Id, InputFile.FromString(weather.SendIcon()));

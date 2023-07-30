@@ -2,7 +2,7 @@
 
 namespace Weather_TG
 {
-    class ParsingWebsite : TelegramBot
+    class ParsingWebsite
     {
         public static Weather ReadWeather(string namecity)
         {
@@ -12,12 +12,16 @@ namespace Weather_TG
 
             string responseBody = ReadJson(URL);
 
-            RootWeather weather_reponse = JsonConvert.DeserializeObject<RootWeather>(responseBody);
+            var weather_reponse = JsonConvert.DeserializeObject<RootWeather>(responseBody);
 
-            var weather = weather_reponse.DailyForecasts.First();
-            var result = new Weather(weather.Day.IconPhrase, weather.Night.IconPhrase, DateTime.Now, weather.Temperature.Minimum.Value, weather.Temperature.Maximum.Value, weather.Day.Icon);
+            if(weather_reponse != null)
+            {
+                DailyForecast weather = weather_reponse.DailyForecasts.First();
+                var result = new Weather(weather.Day.IconPhrase, weather.Night.IconPhrase, DateTime.Now, weather.Temperature.Minimum.Value, weather.Temperature.Maximum.Value, weather.Day.Icon);
+            }
 
-            return result;
+
+            return null;
         }
 
         public static string ReadJson(string URL)

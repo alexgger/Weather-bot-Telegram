@@ -3,8 +3,8 @@
 
     public class CityId
     {
-        public string Key { get; set; }
-        public string LocalizedName { get; set; }
+        public string Key { get; set; } = string.Empty;
+        public string LocalizedName { get; set; } = string.Empty;
     }
 
 
@@ -20,28 +20,28 @@
 
     public class Day
     {
-        public string Icon { get; set; }
-        public string IconPhrase { get; set; }
+        public string Icon { get; set; } = string.Empty;
+        public string IconPhrase { get; set; } = string.Empty;
     }
 
     public class Night
     {
-        public string Icon { get; set; }
-        public string IconPhrase { get; set; }
+        public string Icon { get; set; } = string.Empty;
+        public string IconPhrase { get; set; } = string.Empty;
     }
 
 
     public class Minimum
     {
         public double Value { get; set; }
-        public string Unit { get; set; }
+        public string Unit { get; set; } = string.Empty;
         public int UnitType { get; set; }
     }
 
     public class Maximum
     {
         public double Value { get; set; }
-        public string Unit { get; set; }
+        public string Unit { get; set; } = string.Empty;
         public int UnitType { get; set; }
     }
 
@@ -55,5 +55,5 @@
     class RootWeather
     {
         public List<DailyForecast> DailyForecasts { get; set; }
-    } 
+    }
 }
