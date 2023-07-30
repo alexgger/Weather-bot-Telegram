@@ -18,6 +18,6 @@
             }
         }
 
-        public static string NameApplication { get { return "AWeather Application"; } }
+        public static string NameApplication { get { return "Weather Bot (by alexgger)"; } }
     }
 }
