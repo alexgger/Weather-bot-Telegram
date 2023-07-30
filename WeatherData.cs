@@ -56,4 +56,5 @@
     {
         public List<DailyForecast> DailyForecasts { get; set; }
     }
+
 }

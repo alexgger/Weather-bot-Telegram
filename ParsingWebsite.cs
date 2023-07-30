@@ -4,7 +4,7 @@ namespace Weather_TG
 {
     class ParsingWebsite
     {
-        public static Weather ReadWeather(string namecity)
+        public static Weather? ReadWeather(string namecity)
         {
             string cityKey = SearchCity.SearchID(namecity);
 
